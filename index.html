@@ -4,42 +4,69 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="SurvAIdr is AI property survey reporting software for Irish property surveyors. You survey. We report. Coming soon.">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#041b1b">
     <title>SurvAIdr | AI Property Survey Reporting Software</title>
     <link rel="canonical" href="https://survaidr.ie/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="SurvAIdr | AI Property Survey Reporting Software">
     <meta property="og:description" content="SurvAIdr is AI property survey reporting software for Irish property surveyors. You survey. We report. Coming soon.">
     <meta property="og:url" content="https://survaidr.ie/">
-    <meta property="og:image" content="https://survaidr.ie/assets/survaidr-logo.png">
-    <meta property="og:image:width" content="2172">
-    <meta property="og:image:height" content="724">
+    <meta property="og:image" content="https://survaidr.ie/assets/survaidr-social.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="SurvAIdr — You survey. We report.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="SurvAIdr | AI Property Survey Reporting Software">
     <meta name="twitter:description" content="SurvAIdr is AI property survey reporting software for Irish property surveyors. You survey. We report. Coming soon.">
-    <meta name="twitter:image" content="https://survaidr.ie/assets/survaidr-logo.png">
+    <meta name="twitter:image" content="https://survaidr.ie/assets/survaidr-social.jpg">
     <meta name="twitter:image:alt" content="SurvAIdr — You survey. We report.">
     <style>
+      :root {
+        color-scheme: dark;
+        --accent: #00f3d1;
+      }
+
       * {
         box-sizing: border-box;
       }
 
       body {
+        position: relative;
+        isolation: isolate;
         margin: 0;
         min-height: 100vh;
         min-height: 100svh;
         display: grid;
         place-items: center;
-        padding: 32px 20px;
-        background: #000;
-        color: #00d3a2;
+        padding: clamp(48px, 16svh, 160px) clamp(16px, 3vw, 48px) 24px;
+        background:
+          radial-gradient(ellipse at 85% -12%, #034638, transparent 58%),
+          radial-gradient(ellipse at 61% 87%, #032d28, transparent 59%),
+          #04191b;
+        color: #f8fbfa;
         font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body::before {
+        --peak-size: clamp(660px, 96vw, 1850px);
+        --peak-center: 94vw;
+        --peak-top: 18.4svh;
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+        content: "";
+        background: radial-gradient(ellipse at 84% 21%, #008369, #005044 35%, transparent 68%);
+        mask: url("assets/survaidr-peak.webp") center / var(--peak-size) no-repeat;
+        /* The visible peak starts about a quarter of the way down the asset. */
+        mask-position:
+          calc(var(--peak-center) - var(--peak-size) / 2)
+          calc(var(--peak-top) - var(--peak-size) * 0.246);
+        pointer-events: none;
       }
 
       main {
         width: 100%;
-        max-width: 960px;
+        max-width: clamp(520px, 58vw, 926px);
         text-align: center;
       }
 
@@ -53,36 +80,68 @@
         height: auto;
       }
 
-      p {
-        margin: 24px 0 0;
-        font-size: clamp(16px, 2.5vw, 20px);
-        font-weight: 400;
-        letter-spacing: 0.12em;
+      .status {
+        margin: clamp(48px, 7.35vw, 118px) 0 0;
+        color: var(--accent);
+        font-size: clamp(25px, 2.4vw, 36px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: 0.065em;
+      }
+
+      .status::before {
+        display: block;
+        width: clamp(52px, 5.25vw, 84px);
+        height: 4px;
+        margin: 0 auto clamp(32px, 4vw, 64px);
+        border-radius: 4px;
+        background: currentColor;
+        content: "";
       }
 
       .contact {
-        margin-top: 40px;
+        margin-top: clamp(36px, 3.5vw, 56px);
       }
 
       .contact h2 {
-        margin: 0 0 16px;
-        color: #999;
-        font-size: 14px;
+        margin: 0 0 14px;
+        color: #c5d4d1;
+        font-size: clamp(17px, 1.55vw, 25px);
         font-weight: 400;
-        line-height: 20px;
+        line-height: 1.2;
       }
 
       .contact a {
-        color: #fff;
-        font-size: 16px;
-        line-height: 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: clamp(9px, 0.85vw, 14px) clamp(28px, 3.1vw, 50px);
+        border: 2px solid var(--accent);
+        border-radius: 999px;
+        background: #041b1b;
+        color: inherit;
+        font-size: clamp(17px, 1.55vw, 25px);
+        font-weight: 700;
+        line-height: 1.15;
         text-decoration: none;
-        text-underline-offset: 4px;
       }
 
-      .contact a:hover,
+      .contact a:hover {
+        background: #0b3832;
+      }
+
       .contact a:focus-visible {
-        text-decoration: underline;
+        outline: 2px solid var(--accent);
+        outline-offset: 4px;
+      }
+
+      @media (max-width: 600px) {
+        body::before {
+          --peak-center: 100vw;
+          --peak-top: 52svh;
+          opacity: 0.5;
+        }
       }
     </style>
   </head>
@@ -91,12 +150,12 @@
       <h1>
         <img
           src="assets/survaidr-logo.png"
-          alt="SurvAIdr — AI property survey reporting software for Irish property surveyors. You survey. We report."
-          width="2172"
-          height="724"
+          alt="SurvAIdr. You survey. We report."
+          width="1810"
+          height="250"
         >
       </h1>
-      <p>Coming soon...</p>
+      <p class="status">Coming soon...</p>
       <section class="contact" aria-labelledby="contact-heading">
         <h2 id="contact-heading">Get in touch</h2>
         <a href="mailto:hello@survaidr.ie">hello@survaidr.ie</a>
